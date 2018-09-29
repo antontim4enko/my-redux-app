@@ -19,6 +19,10 @@ function rootReducer(state = initialState, action) {
 					...state.items, action.payload
 				]
 			}
+		case 'DELETE_ITEM' :
+			return {
+				items: action.payload
+			}	
 		default :	
 			return state;
 	}		
