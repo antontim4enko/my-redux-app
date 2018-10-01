@@ -23,6 +23,10 @@ function rootReducer(state = initialState, action) {
 			return {
 				items: action.payload
 			}	
+		case 'REFRESH_ITEM' :
+			return {
+				items: action.payload
+			}		
 		default :	
 			return state;
 	}		

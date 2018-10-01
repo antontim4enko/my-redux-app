@@ -7,3 +7,8 @@ export const deleteItem = (items) => ({
 	type: 'DELETE_ITEM',
 	payload: items
 });
+
+export const refreshItem = (items) => ({
+	type: 'REFRESH_ITEM',
+	payload: items
+})
