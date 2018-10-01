@@ -4,7 +4,8 @@ import TodoItem from './../../components/TodoItem'
 
 
 const mapStateToProps = store => ({
-	items: store.items
+	items: store.items.items.filter( item => item.text.toLowerCase().includes(store.input.inputValue.toLowerCase())),
+	inputValue: store.input.inputValue
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,17 +13,17 @@ const mapDispatchToProps = dispatch => ({
 
 
 
-class TodoList extends React.Component{
+class TodoList extends React.Component {
 	
 
-	render(){
-		const { items } = this.props.items;
-		return(
+	render() {
+		
+		return (
 			<ul>
-				{items.map(item => 
-					<TodoItem key={item.id}  id={item.id} text={item.text}  />
-					)}
-			</ul>			 
+				{this.props.items.map(item =>
+					<TodoItem key={item.id} text={item.text} />
+				)}
+			</ul>
 		);
 	}
 }
