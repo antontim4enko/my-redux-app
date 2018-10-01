@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TodoItem from './../../components/TodoItem'
+import TodoItem from './../../components/TodoItem';
 
 
 const mapStateToProps = store => ({
@@ -9,7 +9,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-})
+
+});
 
 
 
