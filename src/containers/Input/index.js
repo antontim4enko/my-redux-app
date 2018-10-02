@@ -1,49 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from './../../actions';
+import { setInputValue } from './../../actions';
 
-const mapStateToProps = store =>({
-
-})
+const mapStateToProps = store => ({
+	inputValue: store.input
+});
 const mapDispatchToProps = dispatch => ({
-	addTodo: (todo) => dispatch(addTodo(todo))
+	addTodo: (todo) => dispatch(addTodo(todo)),
+	setInputValue: (inputValue) => dispatch(setInputValue(inputValue))
 });
 
-
-
-class Input extends React.Component{
+class Input extends React.Component {
 	state = {
 		value: ""
+	};
+	onFind = e => {
+		e.preventDefault();
 	}
-	onChange = (e) =>{
+	onChange = (e) => {
 		this.setState({
 			value: e.currentTarget.value
 		})
+		this.props.setInputValue(e.currentTarget.value)
 	}
-	onAdd = e =>{
+	onAdd = e => {
 		e.preventDefault();
-		if(this.state.value.trim()){
+		if (this.state.value.trim()) {
 			let newItem = {
-					id: +new Date(),
-					text: this.state.value
-				}
-			this.props.addTodo(newItem);	
+				id: +new Date(),
+				text: this.state.value
+			}
+			this.props.addTodo(newItem);
 			this.setState({
 				value: ""
-			})	
+			})
 		}
-				
 
 	}
-
-	render(){
-		return(
-			<form>
+	render() {
+		const { inputValue } = this.props;
+		return (
+			<form className="main-input" >
 				<input type="text" value={this.state.value} onChange={this.onChange} />
 				<button onClick={this.onAdd} type="submit">Add</button>
 			</form>
 		);
 	}
 }
-
-export default connect( mapStateToProps, mapDispatchToProps )(Input);
+export default connect(mapStateToProps, mapDispatchToProps)(Input);

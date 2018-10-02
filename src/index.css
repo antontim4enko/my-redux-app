@@ -4,11 +4,19 @@
 	margin: 0;
 	padding: 0;
 }
-body {
-	font-family: "Roboto", Arial, sans-serif;
-}
 .container{
 	display: flex;
 	justify-content: center;
 	padding: 30px;
+}
+.main-input{
+	margin-bottom: 20px;
+}
+.todoItem{
+	padding: 10px;
+	
+}
+body {
+	font-family: "Roboto", Arial, sans-serif;
+	padding: 40px;
 }
