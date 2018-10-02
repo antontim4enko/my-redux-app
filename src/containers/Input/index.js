@@ -23,14 +23,14 @@ class Input extends React.Component{
 		this.setState({
 			value: e.currentTarget.value
 		})
-		this.props.setInputValue(this.state.value)
+		this.props.setInputValue(e.currentTarget.value)
 	}
 	render(){
 		const { inputValue } = this.props;
 		return(
 			<form className="main-input" >
 				<input type="text" value={this.state.value} onChange={this.onChange} />
-				{/* <button onClick={this.onFind} >Find</button> */}
+				
 			</form>
 		);
 	}
