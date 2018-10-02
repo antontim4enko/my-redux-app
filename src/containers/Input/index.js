@@ -17,7 +17,6 @@ class Input extends React.Component{
 	};
 	onFind = e => {
 		e.preventDefault();
-		
 	}
 	onChange = (e) =>{
 		this.setState({
