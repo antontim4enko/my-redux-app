@@ -1,4 +1,4 @@
-import { DELETE_ITEM } from "../constans/ActionTypes";
+import { DELETE_ITEM, REFRESH_ITEM, ADD_TODO } from "../constans/ActionTypes";
 
 const initialState = [
     {
@@ -36,6 +36,12 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case DELETE_ITEM : 
             return action.payload;
+           case REFRESH_ITEM :
+                return action.payload 
+            case ADD_TODO :
+                return [
+                    ...state, action.payload
+                ]    
         default:
             return state;
     }

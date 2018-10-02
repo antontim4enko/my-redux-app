@@ -26,9 +26,9 @@ class TodoList extends React.Component {
 		console.log(e.target.textContent);
 		this.props.setCategory(e.target.textContent);
 	}
-	onSave = text => {
-		let destination = this.props.items.find(item => item.text == text);
-		destination.text = text;
+	onSave = (oldText, newText) => {
+		let destination = this.props.items.find( item => item.text == oldText);
+		destination.text = newText;
 		this.props.refreshItem(this.props.items);
 	}
 	allCategoryToggle = () => {
