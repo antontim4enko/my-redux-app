@@ -9,7 +9,6 @@ class TodoItem extends React.Component {
 				<div>
 					{text}
 					
-					
 				</div>
 			</li>
 		);
