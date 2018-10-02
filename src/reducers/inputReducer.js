@@ -1,15 +1,11 @@
 import { SET_INPUT_VALUE } from './../constans/ActionTypes';
 
-const initialState = {
-    inputValue: ""
-};
+const initialState = "" ;
 
 export default function(state = initialState, action){
     switch (action.type) {
         case SET_INPUT_VALUE :
-            return {
-                inputValue: action.payload
-            };
+            return action.payload ;
         default:
             return state;
     }
