@@ -1,35 +1,10 @@
-const initialState = {
-	 items: [
-		{
-			id: 122467654,
-			text: "Make todo app"
-		},
-		{
-			id: 14447799,
-			text: "With Redux.js"
-		}
-	]
-}
+import { combineReducers } from 'redux';
+import items from './itemsReducer';
+import input from './inputReducer';
+import category from './categoryReducer';
 
-function rootReducer(state = initialState, action) {
-	switch(action.type){
-		case 'ADD_TODO' :
-			return {
-				items: [
-					...state.items, action.payload
-				]
-			}
-		case 'DELETE_ITEM' :
-			return {
-				items: action.payload
-			}	
-		case 'REFRESH_ITEM' :
-			return {
-				items: action.payload
-			}		
-		default :	
-			return state;
-	}		
-}
-
-export default rootReducer;
+export default combineReducers({
+	items,
+	input,
+	category
+});
