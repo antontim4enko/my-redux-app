@@ -8,7 +8,8 @@ class TodoItem extends React.Component {
 			<li className="todoItem" >
 				<div>
 					{text}
-
+					
+					
 				</div>
 			</li>
 		);
