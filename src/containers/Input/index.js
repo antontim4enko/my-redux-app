@@ -28,8 +28,9 @@ class Input extends React.Component {
 		if (this.state.value.trim()) {
 			let newItem = {
 				id: +new Date(),
-				text: this.state.value,
-				category: "New"
+				isFinished: false,
+				text: this.state.value
+				
 			}
 			this.props.addTodo(newItem);
 			this.setState({

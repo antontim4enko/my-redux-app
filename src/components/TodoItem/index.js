@@ -15,6 +15,9 @@ class TodoItem extends React.Component {
 	onClick = (id) => {
 		this.props.deleteItem(id)
 	}
+	onCheckboxToggle = id => {
+		this.props.onCheckboxToggle(id);
+	}
 	onEditClick = () => {
 		this.setState({
 			isEditing: !this.state.isEditing
@@ -38,7 +41,10 @@ class TodoItem extends React.Component {
 							<button type="submit" onClick={(e) => this.onSave(e, text)} >Save</button>
 						</form>
 						: <div>
-							{text}
+							<label>
+								<input onChange={() => this.onCheckboxToggle(id)} type="checkbox" checked={this.props.isFinished} />
+								{text}
+							</label>
 							<button onClick={this.onEditClick} >Edit </button>
 							<button onClick={() => this.onClick(id)} >Delete</button>
 						</div>
