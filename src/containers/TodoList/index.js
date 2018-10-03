@@ -5,6 +5,8 @@ import TodoItem from './../../components/TodoItem';
 import { deleteItem } from './../../actions';
 import { refreshItem } from './../../actions';
 import { setCategory } from '../../actions';
+import TodoItem from './../../components/TodoItem';
+import { setCategory } from '../../actions';
 
 const mapStateToProps = store => ({
 	items: store.items
@@ -17,6 +19,7 @@ const mapDispatchToProps = dispatch => ({
 	refreshItem: (items) => dispatch(refreshItem(items)),
 	setCategory: category => dispatch(setCategory(category))
 });
+
 class TodoList extends React.Component {
 	deleteItem = id => {
 		let filtered = this.props.items.filter((item) => item.id !== id);
@@ -34,7 +37,7 @@ class TodoList extends React.Component {
 	allCategoryToggle = () => {
 		this.props.setCategory("");
 	}
-	render() {
+});
 		return (
 			<div>
 				<button onClick={this.categoryToggle} >Products</button>
@@ -46,6 +49,7 @@ class TodoList extends React.Component {
 						<TodoItem key={item.id} id={item.id} text={item.text} deleteItem={this.deleteItem} saveItem={this.onSave} />)
 					}
 
+					)}
 				</ul>
 			</div>
 		);

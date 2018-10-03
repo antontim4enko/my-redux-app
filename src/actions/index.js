@@ -1,4 +1,5 @@
 import { SET_INPUT_VALUE, SET_CATEGORY, ADD_TODO, DELETE_ITEM, REFRESH_ITEM } from './../constans/ActionTypes';
+import { SET_INPUT_VALUE, SET_CATEGORY } from './../constans/ActionTypes';
 
 export const addTodo = (todo) => ({
 	type: ADD_TODO,
@@ -20,3 +21,7 @@ export const setCategory = category => ({
     type: SET_CATEGORY,
     payload: category
 }); 
+export const setCategory = category => ({
+    type: SET_CATEGORY,
+    payload: category
+});

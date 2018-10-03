@@ -4,11 +4,7 @@
 	margin: 0;
 	padding: 0;
 }
-.container{
-	display: flex;
-	justify-content: center;
-	padding: 30px;
-}
+
 .main-input{
 	margin-bottom: 20px;
 }
@@ -19,4 +15,10 @@
 body {
 	font-family: "Roboto", Arial, sans-serif;
 	padding: 40px;
+}
+
+.container{
+	display: flex;
+	justify-content: center;
+	padding: 30px;
 }
