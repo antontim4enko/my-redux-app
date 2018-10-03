@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from './../../actions';
 import { setInputValue } from './../../actions';
-import { setInputValue } from './../../actions';
 
 const mapStateToProps = store =>({
 	inputValue: store.input
@@ -53,6 +52,7 @@ class Input extends React.Component {
 					<button onClick={this.onAdd} type="submit">Add</button>
 				</div>
 				<input type="text" value={this.state.searchValue} onChange={this.onSearch} placeholder="Enter search value" />
+			</form>	
     );
 	}
 }

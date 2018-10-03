@@ -48,8 +48,9 @@ class TodoItem extends React.Component {
 							<button onClick={this.onEditClick} >Edit </button>
 							<button onClick={() => this.onClick(id)} >Delete</button>
 						</div>
-
+				
 				}
+			</li>	
 		);
 	}
 }

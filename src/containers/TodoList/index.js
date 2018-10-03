@@ -5,8 +5,7 @@ import TodoItem from './../../components/TodoItem';
 import { deleteItem } from './../../actions';
 import { refreshItem } from './../../actions';
 import { setCategory } from '../../actions';
-import TodoItem from './../../components/TodoItem';
-import { setCategory } from '../../actions';
+
 
 const mapStateToProps = store => ({
 	items: store.items
@@ -21,9 +20,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class TodoList extends React.Component {
-	state = {
-		arr : [1,2,3,4,5,6]
-	}
 	deleteItem = id => {
 		let filtered = this.props.items.filter((item) => item.id !== id);
 		this.props.deleteItem(filtered);
@@ -41,21 +37,20 @@ class TodoList extends React.Component {
 	componentDidUpdate() {
 		localStorage.setItem('localItems', JSON.stringify(this.props.items));
 	}
-});
+	render(){
 		return (
 			<div>
-				
 				<ul>
 					{this.props.items.map(item =>
 						<TodoItem onCheckboxToggle={this.onCheckboxToggle} isFinished={item.isFinished} key={item.id} id={item.id} text={item.text} deleteItem={this.deleteItem} saveItem={this.onSave} />)
 					}
 
-					)}
+					
 				</ul>
 			</div>
 		);
-
-	}
+	}				
+	
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
