@@ -50,10 +50,10 @@ class TodoItem extends React.Component {
 						</div>
 
 				}
-			</li>
 		);
 	}
 }
+
 
 
 

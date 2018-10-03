@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from './../../actions';
 import { setInputValue } from './../../actions';
+import { setInputValue } from './../../actions';
 
-const mapStateToProps = store => ({
+const mapStateToProps = store =>({
 	inputValue: store.input
-});
+})
 const mapDispatchToProps = dispatch => ({
-	addTodo: (todo) => dispatch(addTodo(todo)),
-	setInputValue: (inputValue) => dispatch(setInputValue(inputValue))
+	setInputValue: (inputValue) => dispatch(setInputValue(inputValue)),
+  addTodo: (todo) => dispatch(addTodo(todo))
 });
 
 class Input extends React.Component {
@@ -16,12 +17,10 @@ class Input extends React.Component {
 		value: "",
 		searchValue: ""
 	};
-
-	onChange = (e) => {
+	onChange = (e) =>{
 		this.setState({
 			value: e.currentTarget.value
 		})
-
 	}
 	onAdd = e => {
 		e.preventDefault();
@@ -54,8 +53,7 @@ class Input extends React.Component {
 					<button onClick={this.onAdd} type="submit">Add</button>
 				</div>
 				<input type="text" value={this.state.searchValue} onChange={this.onSearch} placeholder="Enter search value" />
-			</form>
-		);
+    );
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Input);
