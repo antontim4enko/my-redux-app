@@ -2,21 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from './../../actions';
 import { setInputValue } from './../../actions';
+import './style.css';
 
-const mapStateToProps = store =>({
-	inputValue: store.input
+const mapStateToProps = store => ({
+
 })
 const mapDispatchToProps = dispatch => ({
-	setInputValue: (inputValue) => dispatch(setInputValue(inputValue)),
-  addTodo: (todo) => dispatch(addTodo(todo))
+	addTodo: (todo) => dispatch(addTodo(todo))
 });
 
 class Input extends React.Component {
 	state = {
-		value: "",
-		searchValue: ""
+		value: ""
 	};
-	onChange = (e) =>{
+	onChange = (e) => {
 		this.setState({
 			value: e.currentTarget.value
 		})
@@ -28,7 +27,7 @@ class Input extends React.Component {
 				id: +new Date(),
 				isFinished: false,
 				text: this.state.value
-				
+
 			}
 			this.props.addTodo(newItem);
 			this.setState({
@@ -37,23 +36,14 @@ class Input extends React.Component {
 		}
 
 	}
-	onSearch = (e) => {
-		this.setState({
-			searchValue: e.currentTarget.value
-		})
-		this.props.setInputValue(e.currentTarget.value)
-	}
 	render() {
 		const { inputValue } = this.props;
 		return (
 			<form className="main-input" >
-				<div>
-					<input type="text" value={this.state.value} onChange={this.onChange} placeholder="Enter task" />
-					<button onClick={this.onAdd} type="submit">Add</button>
-				</div>
-				<input type="text" value={this.state.searchValue} onChange={this.onSearch} placeholder="Enter search value" />
-			</form>	
-    );
+				<input type="text" value={this.state.value} onChange={this.onChange} placeholder="Enter task" />
+				<button disabled={this.state.value ? false : true} onClick={this.onAdd} type="submit">Add</button>
+			</form>
+		);
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

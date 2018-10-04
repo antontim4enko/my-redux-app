@@ -3,11 +3,12 @@ import TodoList from './../containers/TodoList';
 import Input from './../containers/Input';
 
 
-class App extends React.Component{
+class App extends React.Component {
 
-	render(){
-		return(
-			<div>
+	render() {
+		return (
+			<div className="wrapper">
+				<div className="header" ><h1>Todo App</h1></div>
 				<Input />
 				<TodoList />
 			</div>

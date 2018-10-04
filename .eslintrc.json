@@ -15,10 +15,6 @@
         "react"
     ],
     "rules": {
-        "indent": [
-            "warn",
-            "tab"
-        ],
         "linebreak-style": [
             "error",
             "windows"

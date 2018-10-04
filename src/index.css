@@ -5,9 +5,6 @@
 	padding: 0;
 }
 
-.main-input{
-	margin-bottom: 20px;
-}
 .todoItem{
 	padding: 10px;
 	
@@ -17,8 +14,25 @@ body {
 	padding: 40px;
 }
 
-.container{
+#root{
 	display: flex;
 	justify-content: center;
 	padding: 30px;
+}
+.wrapper{
+	min-width: 320px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.header{
+	padding: 14px 15px;
+	background-color: #e95950;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
+}
+.header h1{
+	text-shadow: 0 2px 2px #888;
+}
+li{
+	list-style-type: none
 }

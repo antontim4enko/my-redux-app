@@ -9,30 +9,23 @@ import { setCategory } from '../../actions';
 
 const mapStateToProps = store => ({
 	items: store.items
-		.filter(item => item.text.toLowerCase().includes(store.input.toLowerCase())),
-	inputValue: store.input,
 });
 const mapDispatchToProps = dispatch => ({
-	deleteItem: (items) => dispatch(deleteItem(items)),
-	refreshItem: (items) => dispatch(refreshItem(items)),
+	deleteItem: id => dispatch(deleteItem(id)),
+	refreshItem: (oldText, newText) => dispatch(refreshItem(oldText, newText)),
 	setCategory: category => dispatch(setCategory(category)),
-	checkboxToggle: items => dispatch(checkboxToggle(items))
+	checkboxToggle: id => dispatch(checkboxToggle(id))
 });
 
 class TodoList extends React.Component {
 	deleteItem = id => {
-		let filtered = this.props.items.filter((item) => item.id !== id);
-		this.props.deleteItem(filtered);
+		this.props.deleteItem(id);
 	}
 	onSave = (oldText, newText) => {
-		let destination = this.props.items.find( item => item.text == oldText);
-		destination.text = newText;
-		this.props.refreshItem(this.props.items);
+		this.props.refreshItem(oldText, newText);
 	}
 	onCheckboxToggle = id => {
-		let destination = this.props.items.find( item => item.id === id);
-		destination.isFinished = !destination.isFinished;
-		this.props.checkboxToggle(this.props.items)
+		this.props.checkboxToggle(id)
 	}
 	componentDidUpdate() {
 		localStorage.setItem('localItems', JSON.stringify(this.props.items));

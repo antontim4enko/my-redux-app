@@ -42,15 +42,22 @@ if (localState !== null) {
 export default function (state = initialState, action) {
     switch (action.type) {
         case DELETE_ITEM:
-            return action.payload;
+            return state.filter( item => item.id !== action.payload);
         case REFRESH_ITEM:
-            return action.payload;
+            return state.map(
+                item => (item.text === action.payload.oldText)
+                    ? { ...item, text : action.payload.newText}
+                    : item
+            );
         case ADD_TODO:
             return [
                 ...state, action.payload
             ];
         case CHECKBOX_TOGGLE:
-            return action.payload;
+            return state.map( item => (item.id === action.payload)
+                ? { ...item, isFinished: !item.isFinished}
+                : item
+            );
         default:
             return state;
     }
