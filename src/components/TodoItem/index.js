@@ -41,9 +41,10 @@ class TodoItem extends React.Component {
 				transitionAppearTimeout={500}
 				transitionEnter={false}
 				transitionLeave={true}
-				transitionLeaveTimeout={300} >
+				transitionLeaveTimeout={300}
+				component="li" >
 
-				<li className={this.state.isEditing ? "todo-item-editing" : "todo-item"}>
+				<div className={this.state.isEditing ? "todo-item-editing" : "todo-item"}>
 					{
 						this.state.isEditing
 							? <form>
@@ -69,7 +70,7 @@ class TodoItem extends React.Component {
 					}
 
 
-				</li>
+				</div>
 			</ReactCSSTransitionGroup>
 		);
 	}
