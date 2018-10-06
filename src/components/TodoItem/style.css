@@ -12,6 +12,12 @@
 .todo-item div input {
     margin-right: 14px;
 }
+.label-finished{
+	text-decoration: line-through;
+	color: #8c8c8c;
+}
+
+
 .controll-btn {
     border: none;
     background: transparent;

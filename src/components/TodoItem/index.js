@@ -54,7 +54,7 @@ class TodoItem extends React.Component {
 							</form>
 							:
 							<div>
-								<label>
+								<label className={this.props.isFinished ? "label-finished" : ""} >
 									<input onChange={() => this.onCheckboxToggle(id)} type="checkbox" checked={this.props.isFinished} />
 									{text}
 								</label>
